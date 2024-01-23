@@ -13,7 +13,7 @@ class Main extends Component {
           dignissimos quasi? Illo, consectetur.
         </p>
         <h2>MORE THINGS</h2>
-        <p> Her are important stuff too</p>
+        <p className="definition"> Her are important stuff too</p>
       </div>
     );
   }
