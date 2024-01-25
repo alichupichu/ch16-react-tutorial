@@ -1,18 +1,34 @@
 import React, { Component } from "react";
 
 class App extends Component {
-  state = { count: 1 };
+  state = {
+    todos: [
+      "Clean sewing machine",
+      "clean overlocker",
+      "clean iron and iroing baord",
+    ],
+  };
 
-  onCountClick = () => {
-    console.log("onClickCount started", this.state.count);
-    this.setState({ count: this.state.count + 1 });
-    console.log("onClickCount ended", this.state.count);
+  onTodoInput = (e) => {
+    this.setState({ todoInput: e.target.value });
+  };
+
+  onAddClick = () => {
+    const todos = [...this.state.todos];
+    todos.push(this.state.todoInput);
+    this.setState({ todos });
   };
 
   render() {
-    console.log(this.state);
-    const { count } = this.state;
-    return <p onClick={this.onCountClick}> {count} </p>;
+    const { todos } = this.state;
+
+    return (
+      <>
+        {todos.map((todo) => {
+          return <p>{todo}</p>;
+        })}
+      </>
+    );
   }
 }
 
