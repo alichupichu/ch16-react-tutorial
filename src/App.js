@@ -1,35 +1,27 @@
 import React, { Component } from "react";
 
 class App extends Component {
-  state = {
-    todos: [
-      "Clean sewing machine",
-      "clean overlocker",
-      "clean iron and iroing baord",
-    ],
-  };
-
-  onTodoInput = (e) => {
-    this.setState({ todoInput: e.target.value });
-  };
-
-  onAddClick = () => {
-    const todos = [...this.state.todos];
-    todos.push(this.state.todoInput);
-    this.setState({ todos });
-  };
-
+  state = { todos: ["Crepes", "Candied pecans"] };
   render() {
-    const { todos } = this.state;
+    // const { todos } = this.state;
+    // if (!todos.length) {
+    //   return <p> All done!</p>;
+    // }
+    // return todos.map((todo) => {
+    //   return <p>{todo}</p>;
+    // });
+    //TERNARY BELOW
 
-    return (
-      <>
-        {todos.map((todo) => {
-          return <p>{todo}</p>;
-        })}
-      </>
+    !todos.length ? (
+      <p>All done!</p>
+    ) : (
+      todos.map((todo) => {
+        return <p>{todo}</p>;
+      })
     );
   }
 }
 
 export default App;
+
+//conditional rendering ^^
