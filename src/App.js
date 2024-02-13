@@ -1,31 +1,23 @@
 import React, { Component } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Main from "./components/Main";
+import Home from "./components-pages/Home";
+import About from "./components-pages/About";
+import Contact from "./components-pages/Contact";
+import { Routes, Route } from "react-router-dom";
+import Error from "./components-pages/Error";
+import Nav from "./components-pages/Nav";
+import Character from "./components-pages/Character";
 
 const App = () => {
-  //bellow is short hand
-  const [count, setCount] = useState({ count: 0 });
-
-  //long way below
-
-  // const myState = useState(0);
-  // const count = myState[0];
-  // const setCount = myState[1]
-
-  const add = () => {
-    setCount(count + 1);
-  };
-
-  const minus = () => {
-    setCount(count - 1);
-  };
-
   return (
     <>
-      <button onClick={add}>+</button>
-      <button onClick={minus}>-</button>
-      <p>Count : {count}</p>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/" element={<About />} />
+        <Route path="/" element={<Contact />} />
+        <Route path="*" element={<Error />} />
+        <Route path="/:character" element={<Character />} />
+      </Routes>
     </>
   );
 };
